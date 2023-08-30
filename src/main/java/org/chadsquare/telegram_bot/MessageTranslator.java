@@ -1,5 +1,6 @@
 package org.chadsquare.telegram_bot;
 
+import org.chadsquare.cache.RedisTool;
 import org.chadsquare.scraper.Scraper;
 import org.jsoup.select.Elements;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

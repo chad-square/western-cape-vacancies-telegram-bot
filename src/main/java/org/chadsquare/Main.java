@@ -1,5 +1,6 @@
 package org.chadsquare;
 
+import org.chadsquare.cache.RedisTool;
 import org.chadsquare.scraper.Scraper;
 import org.chadsquare.telegram_bot.*;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -16,10 +17,10 @@ public class Main {
         MessageTranslator messageTranslator = new MessageTranslator(
                 new Scraper(),  new RedisTool(jedis), new TelegramButtonBuilder());
 
-        MyBot myBot = new MyBot(messageTranslator);
+        WCVacanciesBot WCVacanciesBot = new WCVacanciesBot(messageTranslator);
 
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-        telegramBotsApi.registerBot(myBot);
+        telegramBotsApi.registerBot(WCVacanciesBot);
 
     }
 }

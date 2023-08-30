@@ -1,18 +1,16 @@
 package org.chadsquare.telegram_bot;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-public class MyBot extends TelegramLongPollingBot {
+public class WCVacanciesBot extends TelegramLongPollingBot {
 
     private final MessageTranslator translator;
 
-    public MyBot(MessageTranslator translator) {
+    public WCVacanciesBot(MessageTranslator translator) {
         super("6605815470:AAFB7BqfPH4LEchXJoNCkRzrP8geG2jKXd0");
         this.translator = translator;
     }

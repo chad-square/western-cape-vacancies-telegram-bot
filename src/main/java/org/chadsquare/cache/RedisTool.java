@@ -1,5 +1,6 @@
-package org.chadsquare.telegram_bot;
+package org.chadsquare.cache;
 
+import org.chadsquare.telegram_bot.ButtonData;
 import redis.clients.jedis.Jedis;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Map;
 
 public class RedisTool {
 
-    private Jedis jedisClient;
+    private final Jedis jedisClient;
 
     public RedisTool(Jedis jedisClient) {
         this.jedisClient = jedisClient;
