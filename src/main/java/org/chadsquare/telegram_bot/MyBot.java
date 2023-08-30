@@ -10,9 +10,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class MyBot extends TelegramLongPollingBot {
 
-    public static final int DYNAMIC_QUERY_LENGTH = 15;
-
-    private static final Logger LOG = LoggerFactory.getLogger(MyBot.class);
     private final MessageTranslator translator;
 
     public MyBot(MessageTranslator translator) {
