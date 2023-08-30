@@ -1,5 +1,6 @@
 package org.chadsquare.telegram_bot;
 
+import org.chadsquare.scraper.Scraper;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class TelegramUpdateTranslator {
 
     private static final String DEPARTMENTS_URL = ".inside #node-wcg-block-52449 .field-item ul li a";
+    private static final String WC_VACANCIES_URL = "https://www.westerncape.gov.za/jobs/";
 
     public static final int DYNAMIC_QUERY_LENGTH = 15;
 
@@ -96,9 +98,9 @@ public class TelegramUpdateTranslator {
 
                 if (departmentUrlByChatId.isEmpty()) {
                     System.out.println("scraping new data...");
-                    String url = "https://www.westerncape.gov.za/jobs/";
-                    String cssSelector = ".inside #node-wcg-block-52449 .field-item ul li a";
-                    ArrayList<ButtonData> buttonDataList = getButtonData(url, cssSelector, isLinkButton);
+//                    String url = "https://www.westerncape.gov.za/jobs/";
+//                    String cssSelector = ".inside #node-wcg-block-52449 .field-item ul li a";
+                    ArrayList<ButtonData> buttonDataList = getButtonData(WC_VACANCIES_URL, DEPARTMENTS_URL, isLinkButton);
                     this.redisTool.cacheDepartmentUrls(buttonDataList, chatId);
                     System.out.println(buttonDataList);
                     return buttonDataList;
@@ -141,7 +143,7 @@ public class TelegramUpdateTranslator {
             switch (query) {
                 case "Agriculture", "Cultural Affairs and Sport", "Economic Development and Tourism",
                         "Environmental Affairs & Development Planning", "Infrastructure", "Local Government",
-                        "Mobility Department", "Police Oversight and Community Safety", "Department of the Premier",
+                        "Mobility", "Police Oversight and Community Safety", "Premier",
                         "Provincial Treasury", "Social Development", "Human Settlements" -> {
                     System.out.println("scraping new data for department vacancies...");
 

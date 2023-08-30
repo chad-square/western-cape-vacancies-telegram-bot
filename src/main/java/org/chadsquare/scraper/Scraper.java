@@ -1,4 +1,4 @@
-package org.chadsquare.telegram_bot;
+package org.chadsquare.scraper;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
