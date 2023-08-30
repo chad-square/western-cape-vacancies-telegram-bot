@@ -12,7 +12,6 @@ public class RedisTool {
 
     public RedisTool(Jedis jedisClient) {
         this.jedisClient = jedisClient;
-
     }
 
 
