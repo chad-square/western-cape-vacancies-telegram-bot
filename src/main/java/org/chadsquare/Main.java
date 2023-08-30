@@ -12,10 +12,11 @@ public class Main {
         System.out.println("Starting western-cape-vacancies-telegram-bot...\n");
 
         Jedis jedis = new Jedis("localhost", 6379);
-        RedisTool redisTool = new RedisTool(jedis);
 
-        TelegramUpdateTranslator telegramUpdateTranslator = new TelegramUpdateTranslator(new Scraper(), redisTool);
-        MyBot myBot = new MyBot(telegramUpdateTranslator, new TelegramButtonBuilder(), redisTool);
+        MessageTranslator messageTranslator = new MessageTranslator(
+                new Scraper(),  new RedisTool(jedis), new TelegramButtonBuilder());
+
+        MyBot myBot = new MyBot(messageTranslator);
 
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         telegramBotsApi.registerBot(myBot);

@@ -6,6 +6,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class Scraper {
 
@@ -23,7 +24,19 @@ public class Scraper {
         }
     }
 
-    public Elements selectSimpleElement(Document doc, String cssSelector) {
+    public Elements scrapUrlAndExtractElements(String url, String cssSelector) {
+        System.out.printf("scraping url: %s\n", url);
+        Optional<Document> optionalDocument = Optional.ofNullable(this.scrap(url));
+
+        if (optionalDocument.isPresent()) {
+            Document document1 = optionalDocument.get();
+            return this.selectSimpleElement(document1, cssSelector);
+        } else {
+            return null;
+        }
+    }
+
+    private Elements selectSimpleElement(Document doc, String cssSelector) {
         return doc.select(cssSelector);
     }
 }
