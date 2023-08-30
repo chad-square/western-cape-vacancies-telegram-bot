@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  wc-telegram-bot-redis:
+    image: redis:7.2.0-alpine
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
