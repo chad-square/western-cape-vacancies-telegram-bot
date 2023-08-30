@@ -10,8 +10,8 @@ public class WCVacanciesBot extends TelegramLongPollingBot {
 
     private final MessageTranslator translator;
 
-    public WCVacanciesBot(MessageTranslator translator) {
-        super("6605815470:AAFB7BqfPH4LEchXJoNCkRzrP8geG2jKXd0");
+    public WCVacanciesBot(String botToken, MessageTranslator translator) {
+        super(botToken);
         this.translator = translator;
     }
 

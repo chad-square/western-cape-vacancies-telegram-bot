@@ -14,10 +14,11 @@ public class Main {
 
         Jedis jedis = new Jedis("localhost", 6379);
 
-        MessageTranslator messageTranslator = new MessageTranslator(
-                new Scraper(),  new RedisTool(jedis), new TelegramButtonBuilder());
+        MessageTranslator messageTranslator =
+                new MessageTranslator(new Scraper(),  new RedisTool(jedis), new TelegramButtonBuilder());
 
-        WCVacanciesBot WCVacanciesBot = new WCVacanciesBot(messageTranslator);
+        WCVacanciesBot WCVacanciesBot =
+                new WCVacanciesBot("6605815470:AAFB7BqfPH4LEchXJoNCkRzrP8geG2jKXd0", messageTranslator);
 
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         telegramBotsApi.registerBot(WCVacanciesBot);
