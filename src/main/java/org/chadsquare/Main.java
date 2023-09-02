@@ -2,7 +2,9 @@ package org.chadsquare;
 
 import org.chadsquare.cache.RedisTool;
 import org.chadsquare.scraper.Scraper;
-import org.chadsquare.telegram_bot.*;
+import org.chadsquare.telegram_bot.MessageTranslator;
+import org.chadsquare.telegram_bot.TelegramButtonBuilder;
+import org.chadsquare.telegram_bot.WCVacanciesBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
