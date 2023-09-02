@@ -17,7 +17,7 @@ public class WCVacanciesBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "WestyVac";
+        return "WestVacs";
     }
 
     @Override

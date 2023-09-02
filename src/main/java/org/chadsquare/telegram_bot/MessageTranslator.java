@@ -8,6 +8,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,11 @@ public class MessageTranslator {
 
     private final TelegramButtonBuilder buttonBuilder;
 
-    public MessageTranslator(Scraper scraper, RedisTool redisTool, TelegramButtonBuilder buttonBuilder) {
-        this.redisTool = redisTool;
-        this.scraper = scraper;
-        this.buttonBuilder = buttonBuilder;
+    public MessageTranslator(String jedisHost, int jedisPort) {
+        this.scraper = new Scraper();
+        Jedis jedis = new Jedis(jedisHost, jedisPort);
+        this.redisTool = new RedisTool(jedis);
+        this.buttonBuilder = new TelegramButtonBuilder();
     }
 
     public SendMessage translateMenuCommand(Update update, String commandQuery, String chatId) {
