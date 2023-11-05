@@ -8,7 +8,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public class Main {
 
-    private static String BOT_TOKEN = "<botToken>";
+    private static final String BOT_TOKEN = "<botToken>";
     public static void main(String[] args) throws TelegramApiException {
         System.out.println("Starting western-cape-vacancies-telegram-bot...\n");
 
